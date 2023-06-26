@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EventHub</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    h1 {
+      margin: 0;
+    }
+    
+    main {
+      padding: 20px;
+    }
+    
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>EventHub</h1>
+  </header>
+  
+  <main>
+    <h2>Welcome to EventHub</h2>
+    <p>Choose a date and mark your event:</p>
+    <form action="s2.html">
+      <label for="event-date">Event Date:</label>
+      <input type="date" id="event-date" name="event-date">
+      <br>
+      <label for="event-type">Event Type:</label>
+      <select id="event-type" name="event-type">
+        <option value="birthday">Birthday Party</option>
+        <option value="tour">Tour</option>
+        <option value="cinema">Cinema Outing</option>
+      </select>
+      <br>
+      <button type="submit">Create Event</button>
+    </form>
+  </main>
+  
+  <footer>
+    &copy; 2023 EventHub. All rights reserved.
+  </footer>
+</body>
+</html>

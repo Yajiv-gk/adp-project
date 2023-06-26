@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EventHub</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    h1 {
+      margin: 0;
+    }
+    
+    main {
+      padding: 20px;
+    }
+    
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>EventHub</h1>
+  </header>
+  
+  <main>
+    <h2>Create Event Group</h2>
+    <p>Event: Birthday Party</p>
+    <p>Date: June 20, 2023</p>
+    
+    <h3>Add Friends to the Group</h3>
+    <form>
+      <label for="friend-name">Friend's Name:</label>
+      <input type="text" id="friend-name" name="friend-name">
+      <br>
+      <button type="button" onclick="addFriend()">Add Friend</button>
+    </form>
+    
+    <ul id="friends-list">
+      <!-- Friends will be dynamically added here -->
+    </ul>
+    
+    <h3>Expense Tracking</h3>
+    <form>
+      <label for="total-expense">Total Expense:</label>
+      <input type="number" id="total-expense" name="total-expense" min="0">
+      <br>
+      <button type="button" onclick="splitExpense()">Split Expense</button>
+    </form>
+    
+    <h3>Upload Event Photos</h3>
+    <form>
+      <label for="photo-upload">Upload Photo:</label>
+      <input type="file" id="photo-upload" name="photo-upload">
+      <br>
+      <button type="button" onclick="uploadPhoto()">Upload</button>
+    </form>
+    
+    <button type="button" onclick="createGroup()">Create Group</button>
+    <p id="group-success" style="display: none; color: green;">Group successfully created!</p>
+  </main>
+  
+  <footer>
+    &copy; 2023 EventHub. All rights reserved.
+  </footer>
+
+  <script>
+    var friends = []; // Array to store friends' names
+
+    function addFriend() {
+      var friendNameInput = document.getElementById("friend-name");
+      var friendName = friendNameInput.value;
+
+      if (friendName !== "") {
+        friends.push(friendName);
+
+        var friendsList = document.getElementById("friends-list");
+        var listItem = document.createElement("li");
+        listItem.textContent = friendName;
+        friendsList.appendChild(listItem);
+
+        friendNameInput.value = "";
+      }
+    }
+
+    function splitExpense() {
+      var totalExpenseInput = document.getElementById("total-expense");
+      var totalExpense = parseFloat(totalExpenseInput.value);
+
+      if (!isNaN(totalExpense)) {
+        var share = totalExpense / friends.length;
+        alert("Each person should pay: $" + share.toFixed(2));
+      }
+    }
+
+    function uploadPhoto() {
+      var photoUploadInput = document.getElementById("photo-upload");
+      var photo = photoUploadInput.files[0];
+
+      // Perform necessary operations with the uploaded photo, such as storing it or displaying it on the page
+      alert("Photo uploaded successfully
